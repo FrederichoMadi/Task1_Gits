@@ -49,3 +49,14 @@ class GridPhoto extends StatelessWidget {
     );
   }
 }
+
+class TagPhotoImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Tidak ada foto'),
+      ),
+    );
+  }
+}
