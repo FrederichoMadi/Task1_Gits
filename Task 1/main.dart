@@ -1,37 +1,35 @@
 import 'dart:io';
 
 class User {
-  String nama;
-  int password;
-  int saldo;
-  String no_rek;
+  late String _nama;
+  late int _password;
+  late int _saldo;
+  late String _no_rek;
 
-  User(
-      {required this.nama,
-      required this.password,
-      required this.saldo,
-      required this.no_rek});
+  User(String nama, int password, int saldo, String no_rek) {
+    this._nama = nama;
+    this._password = password;
+    this._saldo = saldo;
+    this._no_rek = no_rek;
+  }
 
-  String getNama() => nama;
-  int getPassword() => password;
-  int getSaldo() => saldo;
-  String getNoRek() => no_rek;
+  String getNama() => _nama;
+  int getPassword() => _password;
+  int getSaldo() => _saldo;
+  String getRekening() => _no_rek;
 }
 
 void main() {
-  User akun1 = new User(
-      nama: 'Andi', password: 123456, saldo: 100000, no_rek: "987654321");
-
-  User akun2 = new User(
-      nama: 'Budi', password: 112233, saldo: 100000, no_rek: "123456789");
+  User akun1 = new User('Andi', 123456, 100000, "987654321");
+  User akun2 = new User('Budi', 112233, 100000, "123456789");
 
   print("=================== Selamat Datang di ATM =====================");
   stdout.write('Masukan password anda (terdiri dari 6 angka) : ');
   var password = int.parse(stdin.readLineSync()!);
   print("========================================");
-  if (password == akun1.password) {
+  if (password == akun1.getPassword()) {
     menuAtm(akun1, akun2);
-  } else if (password == akun2.password) {
+  } else if (password == akun2.getPassword()) {
     menuAtm(akun2, akun1);
   } else {
     print('password anda salah!');
@@ -60,13 +58,13 @@ void menuAtm(User userLogin, User userLain) {
         print("========================================");
         stdout.write('Masukan nomor rekening : ');
         rekening = stdin.readLineSync()!;
-        if (rekening == userLain.no_rek) {
+        if (rekening == userLain.getRekening()) {
           print("========================================");
           stdout.write('Nominal yang di transfer : ');
           tarifTransfer = int.parse(stdin.readLineSync()!);
           print("======================================== ");
-          print('Nama Tujuan rekening \t\t: ${userLain.nama}');
-          print('No Rekening Tujuan \t\t: ${userLain.no_rek}');
+          print('Nama Tujuan rekening \t\t: ${userLain.getNama()}');
+          print('No Rekening Tujuan \t\t: ${userLain.getRekening()}');
           print('Nominal yang ditransfer \t: Rp. $tarifTransfer');
           stdout.write('Lanjutkan (Y/n)? ');
           var keputusan = stdin.readLineSync()!;
@@ -74,9 +72,9 @@ void menuAtm(User userLogin, User userLain) {
             case 'Y':
             case 'y':
               //perhitungan saldo
-              if (userLogin.saldo > tarifTransfer) {
-                userLogin.saldo -= tarifTransfer;
-                userLain.saldo += tarifTransfer;
+              if (userLogin.getSaldo() > tarifTransfer) {
+                userLogin._saldo -= tarifTransfer;
+                userLain._saldo += tarifTransfer;
                 print("========================================");
                 print('Transaksi anda berhasil!');
 
@@ -104,10 +102,10 @@ void menuAtm(User userLogin, User userLain) {
         print("========================================");
         stdout.write('Masukan nominal penarikan : ');
         penarikan = int.parse(stdin.readLineSync()!);
-        if (userLogin.saldo > penarikan) {
-          userLogin.saldo -= penarikan;
+        if (userLogin._saldo > penarikan) {
+          userLogin._saldo -= penarikan;
           print("========================================");
-          print('Sisa saldo anda : ${userLogin.saldo}');
+          print('Sisa saldo anda : ${userLogin.getSaldo()}');
           print("======================================== \n");
         } else {
           print("========================================");
@@ -119,14 +117,14 @@ void menuAtm(User userLogin, User userLain) {
         print("========================================");
         stdout.write('Masukan nominal setoran : ');
         setoran = int.parse(stdin.readLineSync()!);
-        userLogin.saldo += setoran;
+        userLogin._saldo += setoran;
         print("========================================");
-        print('Saldo anda : ${userLogin.saldo}');
+        print('Saldo anda : ${userLogin.getSaldo()}');
         print("======================================== \n");
         break;
       case 4:
         print("========================================");
-        print("Saldo di rekening anda : Rp. ${userLogin.saldo}");
+        print("Saldo di rekening anda : Rp. ${userLogin.getSaldo()}");
         print("======================================== \n");
         break;
       case 5:
