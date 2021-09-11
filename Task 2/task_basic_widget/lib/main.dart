@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_basic_widget/gridphoto_page.dart';
+import 'package:task_basic_widget/task3/form_page.dart';
+import 'package:task_basic_widget/task3/text_theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            appBarTheme: AppBarTheme(backgroundColor: Colors.black),
-            scaffoldBackgroundColor: Colors.black,
-            brightness: Brightness.dark),
-        home: MyHomePage());
+          primarySwatch: Colors.purple,
+          textTheme: myTextTheme,
+        ),
+        home: FormPage());
   }
 }
 
