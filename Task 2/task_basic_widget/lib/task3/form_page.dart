@@ -76,6 +76,15 @@ class _FormPageState extends State<FormPage> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _descriptionController.dispose();
+    _datePicker.dispose();
+    _timePicker.dispose();
+    super.dispose();
+  }
+
   double horizontalBall(BuildContext context) =>
       MediaQuery.of(context).size.width * 1 / 3;
   double bigCircle(BuildContext context) =>
