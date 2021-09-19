@@ -7,20 +7,22 @@ void main() => login();
 
 //data seller
 Seller seller1 = Seller(
-    nama_toko: "Murah Meriah",
-    no_hp: "08101929387",
-    email: "murahmeriah@gmail.com",
-    barang: "Sepatu",
-    stok: 10,
-    harga: 100000);
+  nama_toko: "Murah Meriah",
+  no_hp: "08101929387",
+  email: "murahmeriah@gmail.com",
+  barang: "Sepatu",
+  stok: 10,
+  harga: 100000,
+);
 
 Seller seller2 = Seller(
-    nama_toko: "Berkah Jaya",
-    no_hp: "081019887923",
-    email: "berkahjaya@gmail.com",
-    barang: "Celana Chino Jeans",
-    stok: 10,
-    harga: 150000);
+  nama_toko: "Berkah Jaya",
+  no_hp: "081019887923",
+  email: "berkahjaya@gmail.com",
+  barang: "Celana Chino Jeans",
+  stok: 10,
+  harga: 150000,
+);
 
 List<Seller> dataToko = [seller1, seller2];
 
@@ -104,7 +106,7 @@ void menuBelanja(List<Seller> dataToko) {
         print("Pilihan anda tidak ditemukan.");
         break;
     }
-  } while (pilihan != 3);
+  } while (true);
 }
 
 void halamanToko(List<Seller> dataToko) {
