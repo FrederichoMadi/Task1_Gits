@@ -15,10 +15,6 @@ class GridPhoto extends StatelessWidget {
           fit: BoxFit.fill,
         ),
         Image.network(
-          'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?size=626&ext=jpg',
-          fit: BoxFit.fill,
-        ),
-        Image.network(
           'https://images.unsplash.com/photo-1618588507085-c79565432917?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
           fit: BoxFit.fill,
         ),
