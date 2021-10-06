@@ -130,37 +130,8 @@ class _AddUpdatePageState extends State<AddUpdatePage> {
                                 SizedBox(width: 10),
                                 ElevatedButton(
                                   onPressed: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: Text("Hapus Data"),
-                                            content: Text(
-                                                "Yakin ingin menghapus ${widget.data?.name} dari data?"),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text("Kembali"),
-                                              ),
-                                              TextButton(
-                                                onPressed: () {
-                                                  data.deleteData(widget.data!);
-                                                  Navigator.pushAndRemoveUntil(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          HomePage(),
-                                                    ),
-                                                    (route) => false,
-                                                  );
-                                                },
-                                                child: Text("Hapus"),
-                                              ),
-                                            ],
-                                          );
-                                        });
+                                    data.deleteData(widget.data!);
+                                    Navigator.pop(context);
                                   },
                                   child: Text("Delete"),
                                   style: ButtonStyle(
